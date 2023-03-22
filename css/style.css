@@ -8582,7 +8582,7 @@ button.bg-dark:focus {
           box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
 }
 
-.shadow {
+.shadow, .topic:hover {
   -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
@@ -10789,4 +10789,23 @@ a.text-dark:hover, a.text-dark:focus {
 }
 .login-form {
   width: 300px;
+}
+
+.min-w-100 {
+  min-width: 100px;
+}
+
+.likes-green {
+  color: #33d499;
+}
+
+.dislikes-red {
+  color: #f87171;
+}
+
+.topic {
+  -webkit-transition: -webkit-box-shadow 0.3s;
+  transition: -webkit-box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s, -webkit-box-shadow 0.3s;
 }

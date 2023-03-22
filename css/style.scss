@@ -8,6 +8,29 @@ $danger: #ff4136;
 
 @use "../bootstrap/bootstrap.scss";
 
+$cLikesGreen: #33d499;
+$cDislikesRed: #f87171;
+
 .login-form {
   width: 300px;
+}
+
+.min-w-100 {
+  min-width: 100px;
+}
+
+.likes-green {
+  color: $cLikesGreen;
+}
+
+.dislikes-red {
+  color: $cDislikesRed;
+}
+
+.topic {
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    @extend .shadow;
+  }
 }
