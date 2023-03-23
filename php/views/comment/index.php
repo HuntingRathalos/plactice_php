@@ -12,6 +12,35 @@
             <div id="container">
                 <main class="container py-3">
                     <h1 class="h2 mb-3">過去の投稿</h1>
+                    <div class="row">
+                        <div class="col">
+                            <canvas id="chart" width="400" height="400" data-likes="3" data-dislikes="2"></canvas>
+                            <style>
+                                #chart {
+                                    background-color: gray;
+                                }
+                            </style>
+                        </div>
+                        <div class="col">
+                                <div class="">
+                                    <h1>たこ焼きって美味しいですよね。</h1>
+                                    <span class="mr-1 h5">Posted by テストユーザー</span>
+                                    <span class="mr-1 h5">&bull;</span>
+                                    <span class="h5">36 Views</span>
+                                </div>
+                                <div class="container text-center my-4">
+                                    <div class="row justify-content-center">
+                                        <div class="likes-green col-auto">
+                                            <div class="display-1">2</div>
+                                            <div class="h4 mb-0">賛成</div>
+                                        </div>
+                                        <div class="dislikes-red col-auto">
+                                            <div class="display-1">3</div>
+                                            <div class="h4 mb-0">反対</div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
                         <ul class="list-unstyled my-5">
                             <li class=" bg-white shadow-sm mb-3 rounded p-3">
                                 <h2 class="h4 mb-2">
@@ -21,6 +50,7 @@
                                 <span>Commented by テストユーザー</span>
                             </li>
                         </ul>
+                    </div>
                 </main>
             </div>
         </div>
