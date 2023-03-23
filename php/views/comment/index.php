@@ -21,7 +21,7 @@
                                 }
                             </style>
                         </div>
-                        <div class="col">
+                        <div class="col my-5">
                                 <div class="">
                                     <h1>たこ焼きって美味しいですよね。</h1>
                                     <span class="mr-1 h5">Posted by テストユーザー</span>
@@ -40,6 +40,28 @@
                                         </div>
                                     </div>
                                 </div>
+                                <form action="">
+                                    <span class="h4">あなたは賛成？それとも反対？</span>
+                                    <input type="hidden" name="topic_id" value="3">
+                                    <div class="form-group">
+                                        <textarea class="w-100 border-light" name="body" id="body" rows="5"></textarea>
+                                    </div>
+                                    <div class="container">
+                                        <div class="row form-group h4">
+                                            <div class="col-auto d-flex align-items-center pl-0">
+                                                <div class="form-check-inline">
+                                                    <input class="form-check-inline" type="radio" name="agree" id="agree" value="1" checked>
+                                                    <label for="agree">賛成</label>
+                                                </div>
+                                                <div class="form-check-inline">
+                                                    <input class="form-check-inline" type="radio" name="disagree" id="disagree" value="0">
+                                                    <label for="agree">反対</label>
+                                                </div>
+                                            </div>
+                                            <input class="col btn btn-success shadow-sm" type="submit" value="送信">
+                                        </div>
+                                    </div>
+                                </form>
                         </div>
                         <ul class="list-unstyled my-5">
                             <li class=" bg-white shadow-sm mb-3 rounded p-3">
