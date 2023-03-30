@@ -19,6 +19,9 @@ require_once SOURCE_BASE , 'libs/message.php';
 require_once SOURCE_BASE . 'db/datasource.php';
 require_once SOURCE_BASE . 'db/user.query.php';
 
+//view
+require_once SOURCE_BASE . 'views/login.php';
+
 session_start();
 
 require_once SOURCE_BASE . 'partials/header.php';
