@@ -1,16 +1,48 @@
-<h1>ユーザー登録ページです</h1>
-<form action="<?php echo CURRENT_URI; ?>" method="post">
-    <div class="">
-        <label for="id">ID</label>
-        <input type="text" name="id" id="id">
+<?php
+
+namespace view\register;
+
+function index()
+{
+    ?>
+
+<h1 class="sr-only">アカウント登録</h1>
+<div class="mt-5">
+    <div class="text-center mb-4">
+        <img src="" alt="" />
     </div>
-    <div class="">
-        <label for="pwd">パスワード</label>
-        <input type="text" name="pwd" id="pwd">
+    <div
+        class="login-form bg-white p-4 shadow-sm mx-auto rounded"
+    >
+        <form action="<?php echo CURRENT_URI; ?>" method="post">
+            <div class="form-group">
+                <label for="id">ユーザーID</label>
+                <input id="id" type="text" name="id" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="pwd">パスワード</label>
+                <input id="pwd" type="password" name="pwd" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="nickname">ニックネーム</label>
+                <input id="nickname"  type="text" name="nickname" class="form-control" />
+            </div>
+            <div
+                class="d-flex align-items-center justify-content-between"
+            >
+                <div class="">
+                    <a href="<?php the_url('login'); ?>">ログインへ</a>
+                </div>
+                <div class="">
+                    <input
+                        class="btn btn-primary shadow-sm"
+                        type="submit"
+                        value="登録"
+                    />
+                </div>
+            </div>
+        </form>
     </div>
-    <div class="">
-        <label for="nickname">ニックネーム</label>
-        <input type="text" name="nickname" id="nickname">
-    </div>
-    <input type="submit" value="登録">
-</form>
+</div>
+<?php } ?>
+

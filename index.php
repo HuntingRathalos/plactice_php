@@ -21,10 +21,12 @@ require_once SOURCE_BASE . 'db/user.query.php';
 
 // partials
 require_once SOURCE_BASE . 'partials/header.php';
+require_once SOURCE_BASE . 'partials/footer.php';
 
 //view
 require_once SOURCE_BASE . 'views/login.php';
-require_once SOURCE_BASE . 'partials/footer.php';
+require_once SOURCE_BASE . 'views/register.php';
+
 
 
 session_start();
