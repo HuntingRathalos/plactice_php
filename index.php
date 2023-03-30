@@ -19,17 +19,33 @@ require_once SOURCE_BASE , 'libs/message.php';
 require_once SOURCE_BASE . 'db/datasource.php';
 require_once SOURCE_BASE . 'db/user.query.php';
 
+// partials
+require_once SOURCE_BASE . 'partials/header.php';
+
 //view
 require_once SOURCE_BASE . 'views/login.php';
+require_once SOURCE_BASE . 'partials/footer.php';
+
 
 session_start();
 
-require_once SOURCE_BASE . 'partials/header.php';
+try {
 
-$rpath = str_replace(BASE_CONTEXT_PATH, '', CURRENT_URI);
-$method = strtolower($_SERVER['REQUEST_METHOD']);
+    \partials\header();
 
-route($rpath);
+    $rpath = str_replace(BASE_CONTEXT_PATH, '', CURRENT_URI);
+    $method = strtolower($_SERVER['REQUEST_METHOD']);
+
+    route($rpath);
+
+    \partials\footer();
+
+} catch(Throwable $e){
+
+    die('<h1>何かがおかしいようです。</h1>')
+
+}
+
 
 
 
@@ -39,4 +55,3 @@ route($rpath);
 //     require_once SOURCE_BASE . 'controllers/home.php';
 // }
 
-require_once SOURCE_BASE . 'partials/footer.php';

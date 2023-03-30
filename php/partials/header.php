@@ -1,7 +1,13 @@
 <?php
+
+    namespace partials;
+
     use lib\Msg;
 
-    ?>
+    // 後々引数を渡したいので関数化しておく
+    function header()
+    {
+        ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,5 +44,6 @@
     </header>
     <main class="container py-3">
     <?php
-                Msg::flush();
+                    Msg::flush();
+    }
     ?>
