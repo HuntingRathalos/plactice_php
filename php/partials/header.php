@@ -3,6 +3,7 @@
     namespace partials;
 
     use lib\Msg;
+    use lib\Auth;
 
     // 後々引数を渡したいので関数化しておく
     function header()
@@ -33,11 +34,15 @@
                 >
             </a>
             <div class="col-md-auto">
-                <?php if(true) :  ?>
-                <a href="<?php the_url('register');?>" class="btn btn-primary mr-2">登録</a>
-                <a href="<?php the_url('register');?>">ログイン</a>
-                <?php else : ?>
-                    <!-- ログインしている時と出し分ける -->
+                <?php if(Auth::isLogin()) :  ?>
+                    <!-- ログイン中 -->
+                        <a href="<?php the_url('topic/create');?>" class="btn btn-primary mr-2">投稿</a>
+                        <a href="<?php the_url('topic/archive');?>" class="mr-2">過去の投稿</a>
+                        <a href="<?php the_url('logout');?>" class="mr-2">ログアウト</a>
+                    <?php else : ?>
+                        <!-- ログインしている時と出し分ける -->
+                        <a href="<?php the_url('register');?>" class="btn btn-primary mr-2">登録</a>
+                        <a href="<?php the_url('register');?>">ログイン</a>
                 <?php endif ; ?>
             </div>
         </nav>
