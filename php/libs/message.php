@@ -27,15 +27,20 @@ class Msg extends AbstractModel
         try {
             $msg_wigh_type = static::getSessionAndFlush() ?? [];
 
+            echo '<div id="messages">';
+
             foreach ($msg_wigh_type as $type => $msgs) {
                 if ($type === static::DEBUG && !DEBUG) {
                     continue;
                 }
 
+                $color = $type ===  static::INFO ? 'alert-info' : 'alert-danger';
                 foreach ($msgs as $msg) {
-                    echo "<div>{$type}:{$msg}</div>";
+                    echo "<div class='alert $color'>{$msg}</div>";
                 }
             }
+
+            echo '</div>';
         } catch (Throwable $e) {
             Msg::push(Msg::DEBUG, 'Msg::flushでエラー発生');
         }
