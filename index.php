@@ -11,6 +11,7 @@ require_once SOURCE_BASE , 'libs/auth.php';
 //model
 require_once SOURCE_BASE . 'models/abstract.model.php';
 require_once SOURCE_BASE . 'models/user.model.php';
+require_once SOURCE_BASE . 'models/topic.model.php';
 
 // msg
 require_once SOURCE_BASE , 'libs/message.php';
@@ -18,6 +19,7 @@ require_once SOURCE_BASE , 'libs/message.php';
 //db
 require_once SOURCE_BASE . 'db/datasource.php';
 require_once SOURCE_BASE . 'db/user.query.php';
+require_once SOURCE_BASE . 'db/topic.query.php';
 
 // partials
 require_once SOURCE_BASE . 'partials/header.php';
@@ -27,7 +29,7 @@ require_once SOURCE_BASE . 'partials/footer.php';
 require_once SOURCE_BASE . 'views/login.php';
 require_once SOURCE_BASE . 'views/register.php';
 
-
+use function lib\route;
 
 session_start();
 
