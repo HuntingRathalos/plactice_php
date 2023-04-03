@@ -20,6 +20,9 @@ function route($rpath, $method) {
 
         require_once $targetFile;
 
+        // $rpath内の/を置換する
+        $rpath = str_replace('/', '\\', $rpath);
+
         // ""内なので\はエスケープする！
         $fn = "\\controllers\\{$rpath}\\{$method}";
         $fn();
