@@ -9,7 +9,8 @@ function index($topics)
 <ul class="container">
     <?php
     foreach ($topics as $topic) {
-        \partials\topic_list_item($topic);
+        $url = get_url('topic/edit?topic_id=' . $topic->id);
+        \partials\topic_list_item($topic, $url);
     }
     ?>
 </ul>
