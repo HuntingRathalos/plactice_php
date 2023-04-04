@@ -28,7 +28,7 @@
             <a href="<?php the_url('/');?>"
                 class="col-md d-flex align-items-center mb-3 mb-md-0"
             >
-                <img width="50" class="mr-2" src="" alt="" />
+                <img width="50" class="mr-2" src="<?php  echo BASE_IMAGE_PATH;?>logo.svg" alt="" />
                 <span class="h2 font-weight-bold mb-0"
                     >みんなのアンケート</span
                 >
