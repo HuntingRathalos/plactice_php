@@ -1,10 +1,14 @@
 <?php
+
 namespace controllers\home;
 
-function get() {
-    require_once SOURCE_BASE . 'views/home.php';
+function get()
+{
+    // require_once SOURCE_BASE . 'views/home.php';
+    \view\home\index($topics);
 }
 
-function post() {
+function post()
+{
     echo 'postです';
 }
