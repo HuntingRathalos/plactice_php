@@ -4,7 +4,7 @@ namespace partials;
 
 use lib\Auth;
 
-function topic_header_item($topic)
+function topic_header_item($topic, $from_top_page)
 {
     ?>
 <div class="row">
@@ -13,7 +13,7 @@ function topic_header_item($topic)
     </div>
     <div class="col my-5">
         <?php  topic_main($topic);?>
-        <?php comment_form($topic); ?>
+        <?php comment_form($topic, $from_top_page); ?>
     </div>
 </div>
 <?php }
@@ -29,11 +29,19 @@ function chart($topic)
     </style>
 <?php }
 
-function topic_main($topic)
+function topic_main($topic, $from_top_page)
 {
     ?>
     <div class="">
-        <h1><?php echo $topic->title; ?></h1>
+        <?php if($from_top_page): ?>
+            <h1>
+                <a class="text-body" href="<?php the_url('topic/detail?topic_id' . $topic->id); ?>">
+                    <?php echo $topic->title; ?>
+                </a>
+            </h1>
+        <?php else: ?>
+            <h1><?php echo $topic->title; ?></h1>
+        <?php endif; ?>
         <span class="mr-1 h5">Posted by <?php echo $topic->nickname; ?></span>
         <span class="mr-1 h5">&bull;</span>
         <span class="h5"><?php echo $topic->view; ?> Views</span>
