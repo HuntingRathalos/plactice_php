@@ -22,6 +22,27 @@ class TopicQuery
         return $result;
     }
 
+    public static function fetchPublishedTopics()
+    {
+        $db = new DataSource();
+        $sql = "
+        select
+            t.*, u.nickname
+        from topics t
+        inner join users u
+            on t.user_id = u.id
+        where t.del_flg != 1
+            and u.del_flg != 1
+            and t.published != 1
+        order by t.id desc
+        ";
+        $result = $db->select($sql, [
+            ':id' => $user->id
+        ], DataSource::CLS, TopicModel::class);
+
+        return $result;
+    }
+
     // public static function insert($topic)
     // {
     //     $db = new DataSource();
