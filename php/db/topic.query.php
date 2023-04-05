@@ -14,7 +14,7 @@ class TopicQuery
         }
 
         $db = new DataSource();
-        $sql = "select * from topics where user_id = :id; and del_flg != 1;";
+        $sql = "select * from topics where user_id = :id; and del_flg != 1 order by desc;";
         $result = $db->select($sql, [
             ':id' => $user->id
         ], DataSource::CLS, TopicModel::class);
