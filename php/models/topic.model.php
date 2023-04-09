@@ -16,9 +16,11 @@ class TopicModel extends AbstractModel
 
     protected static $SESSION_NAME = '_topic';
 
-    // public function isValidId() {
-    //     return static::validatedId($this->id);
-    // }
+    // 仮実装
+    public function isValidId()
+    {
+        return true;
+    }
 
     // public static function validatedId($val) {
     //     $res = true;

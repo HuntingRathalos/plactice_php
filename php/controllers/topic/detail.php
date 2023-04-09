@@ -2,6 +2,7 @@
 
 namespace controllers\topic\detail;
 
+use db\CommentQuery;
 use db\TopicQuery;
 use models\UserModel;
 use lib\Auth;
@@ -11,18 +12,16 @@ function get()
 {
     $topic = new TopicModel();
     $topic->id = get_param('topic_id', null, false);
-    $topic = TopicQuery::fetchByUserId($topic);
 
-    if ($topics === false) {
-        Msg::push(Msg::ERROR, 'ログインしてください。');
-        redirect('login');
+    $topic = TopicQuery::fetchById($topic);
+    $comments = CommentQuery::fetchByTopicId($topic);
+
+    if (!$topic) {
+        Msg::push(Msg::ERROR, 'トピックが見つかりません。');
+        redirect('404');
     }
 
-    if (count($topics) > 0) {
-        \view\topic\archive\index($topics);
-    } else {
-        echo '<div class="alert alert-primary">トピックを投稿しよう。</div>';
-    }
+    \view\topic\detail\index($topic, $comments);
 }
 
 function post()
