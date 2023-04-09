@@ -44,7 +44,9 @@ try {
 
     \partials\header();
 
-    $rpath = str_replace(BASE_CONTEXT_PATH, '', CURRENT_URI);
+    $url = parse_url(CURRENT_URI);
+
+    $rpath = str_replace(BASE_CONTEXT_PATH, '', $url['path']);
     $method = strtolower($_SERVER['REQUEST_METHOD']);
 
     route($rpath);

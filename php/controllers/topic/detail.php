@@ -13,17 +13,13 @@ function get()
     $topic = new TopicModel();
     $topic->id = get_param('topic_id', null, false);
 
-    $topic = TopicQuery::fetchById($topic);
+    $fetchedTopic = TopicQuery::fetchById($topic);
     $comments = CommentQuery::fetchByTopicId($topic);
 
-    if (!$topic) {
+    if (!$fetchedTopic) {
         Msg::push(Msg::ERROR, 'トピックが見つかりません。');
         redirect('404');
     }
 
-    \view\topic\detail\index($topic, $comments);
-}
-
-function post()
-{
+    \view\topic\detail\index($fetchedTopic, $comments);
 }
