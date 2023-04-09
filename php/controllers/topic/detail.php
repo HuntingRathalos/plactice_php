@@ -1,17 +1,17 @@
 <?php
 
-namespace controllers\topic\archive;
+namespace controllers\topic\detail;
 
 use db\TopicQuery;
 use models\UserModel;
 use lib\Auth;
+use models\TopicModel;
 
 function get()
 {
-    Auth::requireLogin();
-
-    $user = UserModel::getSession();
-    $topics = TopicQuery::fetchByUserId($user);
+    $topic = new TopicModel();
+    $topic->id = get_param('topic_id', null, false);
+    $topic = TopicQuery::fetchByUserId($topic);
 
     if ($topics === false) {
         Msg::push(Msg::ERROR, 'ログインしてください。');
