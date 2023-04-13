@@ -68,7 +68,7 @@ class TopicQuery
         return $result;
     }
 
-    public static function incrementViewCount()
+    public static function incrementViewCount($topics)
     {
         if (!$topic->isValidId()) {
             return false;
@@ -80,6 +80,29 @@ class TopicQuery
 
         return $db->execute([
             ':id' => $topic->id
+        ]);
+    }
+
+    public static function isUserOwnTopic($topic_id, $user)
+    {
+        if (!($TopicModel::validatedId($topic_id) && $user->isValidId())) {
+            return false;
+        }
+
+        $db = new DataSource();
+
+        $sql = "
+        select
+            count(1)
+        from topics
+        where id = :topic_id
+            and where user_id = :user_id
+            and where del_flg != 1;
+        ";
+
+        return $db->selectOne([
+            ':id' => $topic_id,
+            ':user_id' => $user->id
         ]);
     }
 

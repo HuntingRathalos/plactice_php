@@ -108,4 +108,15 @@ class Auth
             redirect('login');
         }
     }
+
+
+    public static function hasPermission($id, $user)
+    {
+    }
+    public static function requirePermission()
+    {
+        if (!static::hasPermission()) {
+            Msg::push(Msg::ERROR, '編集権限がありません。ログインして再度お試しください。');
+        }
+    }
 }
