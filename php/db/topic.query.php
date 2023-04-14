@@ -93,17 +93,25 @@ class TopicQuery
 
         $sql = "
         select
-            count(1)
+            count(1) as count
         from topics
         where id = :topic_id
             and where user_id = :user_id
             and where del_flg != 1;
         ";
 
-        return $db->selectOne([
+        $result =  $db->selectOne([
             ':id' => $topic_id,
             ':user_id' => $user->id
         ]);
+
+        // if (!empty($result) && $result != 0) {
+        //     return false;
+        // } else {
+        //     return true;
+        // }
+
+        return !empty($result) && $result != 0;
     }
 
     // public static function insert($topic)
