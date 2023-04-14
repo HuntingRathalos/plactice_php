@@ -50,6 +50,9 @@ class TopicQuery
         }
 
         $db = new DataSource();
+
+        // クエリにはなるべく詳細な条件を付与せず使いまわしやすくする
+        // 呼び出し側で条件指定する
         $sql = "
         select
             t.*, u.nickname
@@ -58,7 +61,6 @@ class TopicQuery
             on t.id = u.id
         where t.del_flg != 1
             and u.del_flg != 1
-            and t.published != 1
         order by t.id desc
         ";
         $result = $db->selectOne($sql, [
