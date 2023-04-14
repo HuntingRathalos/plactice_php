@@ -2,6 +2,7 @@
 
 namespace controllers\topic\edit;
 
+use db\TopicQuery;
 use lib\Auth;
 use models\TopicModel;
 use models\UserModel;
@@ -15,4 +16,8 @@ function get()
 
     $user = UserModel::getSession();
     Auth::requirePermission($topic->id, $user);
+
+    $fetchedTopic = TopicQuery::fetchById($topic);
+
+    \view\topic\edit\index($fetchedTopic);
 }
