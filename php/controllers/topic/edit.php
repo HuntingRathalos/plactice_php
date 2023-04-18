@@ -6,6 +6,7 @@ use db\TopicQuery;
 use lib\Auth;
 use models\TopicModel;
 use models\UserModel;
+use Throwable;
 
 function get()
 {

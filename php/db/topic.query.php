@@ -116,6 +116,28 @@ class TopicQuery
         return !empty($result) && $result != 0;
     }
 
+    public static function update($topic)
+    {
+        // バリデーション
+
+        $db = new DataSource();
+
+        $sql = "
+        update topics
+        set
+            title = :title,
+            published = :published
+        where id = :id;
+        "
+        ;
+
+        return $db->execute([
+            ':id' => $topic->id,
+            ':title' => $topic->title,
+            ':published' => $topic->published,
+        ]);
+    }
+
     // public static function insert($topic)
     // {
     //     $db = new DataSource();
