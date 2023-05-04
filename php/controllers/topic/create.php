@@ -1,6 +1,6 @@
 <?php
 
-namespace controllers\topic\edit;
+namespace controllers\topic\create;
 
 use db\TopicQuery;
 use lib\Auth;
@@ -13,15 +13,13 @@ function get()
 {
     Auth::requireLogin();
 
+    // \view\topic\edit\indexを使い回すため、ダミーデータ挿入
     $topic = new TopicModel();
-    $topic->id = get_param('topic_id', null, false);
+    $topic->id = -1;
+    $topic->title = '';
+    $topic->published = 1;
 
-    $user = UserModel::getSession();
-    Auth::requirePermission($topic->id, $user);
-
-    $fetchedTopic = TopicQuery::fetchById($topic);
-
-    \view\topic\edit\index($fetchedTopic, true);
+    \view\topic\edit\index($fetchedTopic, false);
 }
 
 function post()

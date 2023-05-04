@@ -2,10 +2,12 @@
 
 namespace view\topic\edit;
 
-function index($topic)
+function index($topic, $is_edit)
 {
+    // viewを使い回すため、フラグ出だし分ける
+    $header_title = $is_edit ? 'トピックの編集' : 'トピック作成';
     ?>
-    <h1 class="h2 mb-3">トピック作成</h1>
+    <h1 class="h2 mb-3"><<?php echo $header_title; ?></h1>
         <div
             class="bg-white p-4 shadow-sm mx-auto rounded"
         >
