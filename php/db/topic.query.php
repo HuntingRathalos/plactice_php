@@ -138,16 +138,17 @@ class TopicQuery
         ]);
     }
 
-    // public static function insert($topic)
-    // {
-    //     $db = new DataSource();
-    //     $sql = "insert into topics(id, pwd, nickname) values(:id, :pwd, :nickname);";
-    //     $topic->pwd = password_hash($topic->pwd, PASSWORD_BCRYPT);
+    public static function insert($topic, $user)
+    {
+        // バリデーション
 
-    //     return $db->execute($sql, [
-    //         ':id' => $topic->id,
-    //         ':pwd' => $topic->pwd,
-    //         ':nickname' => $topic->nickname,
-    //     ]);
-    // }
+        $db = new DataSource();
+        $sql = "insert into topics(title, published, user_id) values(:id, :published, :user_id);";
+
+        return $db->execute($sql, [
+            ':title' => $topic->title,
+            ':published' => $topic->published,
+            ':user_id' => $user->id,
+        ]);
+    }
 }
